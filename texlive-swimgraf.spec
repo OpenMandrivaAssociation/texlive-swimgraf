@@ -71,6 +71,7 @@ colour output device.
 %doc %{_texmfdistdir}/doc/latex/swimgraf/swimgraf.pdf
 %doc %{_texmfdistdir}/doc/latex/swimgraf/text1.pdf
 %doc %{_texmfdistdir}/doc/latex/swimgraf/text2.pdf
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -81,3 +82,5 @@ colour output device.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
