@@ -1,21 +1,23 @@
-# revision 18780
+# revision 25446
 # category Package
 # catalog-ctan /macros/latex/contrib/swimgraf
-# catalog-date 2007-01-15 14:17:51 +0100
+# catalog-date 2012-02-20 12:29:23 +0100
 # catalog-license lppl
 # catalog-version undef
 Name:		texlive-swimgraf
-Version:	20070115
-Release:	2
+Version:	20120220
+Release:	1
 Summary:	Graphical/textual representations of swimming performances
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/swimgraf
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.doc.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.source.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
+Requires(post):	texlive-kpathsea
 
 %description
 The package provides two macros that produce representations of
@@ -32,19 +34,24 @@ records are included. The package requires the PSTricks and
 keyval packages. For attractive output it also requires a
 colour output device.
 
+%post
+    %{_sbindir}/texlive.post
+
+%postun
+    if [ $1 -eq 0 ]; then
+	%{_sbindir}/texlive.post
+    fi
+
 #-----------------------------------------------------------------------
 %files
-%doc %{_texmfdistdir}/doc/latex/swimgraf/100BR1.TEX
-%doc %{_texmfdistdir}/doc/latex/swimgraf/100BR2.TEX
+%{_texmfdistdir}/tex/latex/swimgraf/swimgraf.cfg
+%{_texmfdistdir}/tex/latex/swimgraf/swimgraf.sty
 %doc %{_texmfdistdir}/doc/latex/swimgraf/100br1.pdf
+%doc %{_texmfdistdir}/doc/latex/swimgraf/100br1.tex
 %doc %{_texmfdistdir}/doc/latex/swimgraf/100br2.pdf
-%doc %{_texmfdistdir}/doc/latex/swimgraf/README.TXT
-%doc %{_texmfdistdir}/doc/latex/swimgraf/SAMPLE1.DAT
-%doc %{_texmfdistdir}/doc/latex/swimgraf/SAMPLE2.DAT
-%doc %{_texmfdistdir}/doc/latex/swimgraf/SWIMGRAF.CFG
-%doc %{_texmfdistdir}/doc/latex/swimgraf/SWIMGRAF.STY
-%doc %{_texmfdistdir}/doc/latex/swimgraf/TEXT1.TEX
-%doc %{_texmfdistdir}/doc/latex/swimgraf/TEXT2.TEX
+%doc %{_texmfdistdir}/doc/latex/swimgraf/100br2.tex
+%doc %{_texmfdistdir}/doc/latex/swimgraf/README
+%doc %{_texmfdistdir}/doc/latex/swimgraf/README.TEXLIVE
 %doc %{_texmfdistdir}/doc/latex/swimgraf/fcanada.dat
 %doc %{_texmfdistdir}/doc/latex/swimgraf/fcanada11.dat
 %doc %{_texmfdistdir}/doc/latex/swimgraf/fcanada12.dat
@@ -66,16 +73,47 @@ colour output device.
 %doc %{_texmfdistdir}/doc/latex/swimgraf/fworld.dat
 %doc %{_texmfdistdir}/doc/latex/swimgraf/mcanada.dat
 %doc %{_texmfdistdir}/doc/latex/swimgraf/mworld.dat
-%doc %{_texmfdistdir}/doc/latex/swimgraf/swimgraf.pdf
+%doc %{_texmfdistdir}/doc/latex/swimgraf/sample1.dat
+%doc %{_texmfdistdir}/doc/latex/swimgraf/sample2.dat
 %doc %{_texmfdistdir}/doc/latex/swimgraf/text1.pdf
+%doc %{_texmfdistdir}/doc/latex/swimgraf/text1.tex
 %doc %{_texmfdistdir}/doc/latex/swimgraf/text2.pdf
+%doc %{_texmfdistdir}/doc/latex/swimgraf/text2.tex
+#- source
+%doc %{_texmfdistdir}/source/latex/swimgraf/100BR1.TEX
+%doc %{_texmfdistdir}/source/latex/swimgraf/100BR2.TEX
+%doc %{_texmfdistdir}/source/latex/swimgraf/SAMPLE1.DAT
+%doc %{_texmfdistdir}/source/latex/swimgraf/SAMPLE2.DAT
+%doc %{_texmfdistdir}/source/latex/swimgraf/TEXT1.TEX
+%doc %{_texmfdistdir}/source/latex/swimgraf/TEXT2.TEX
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada11.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada12.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada13.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada14.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada15.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada16.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fcanada17.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario10.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario11.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario12.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario13.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario14.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario15.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario16.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario17.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario8.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fontario9.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/fworld.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/mcanada.dat
+%doc %{_texmfdistdir}/source/latex/swimgraf/mworld.dat
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%setup -c -a0 -a1 -a2
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar doc %{buildroot}%{_texmfdistdir}
+cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
