@@ -117,3 +117,21 @@ colour output device.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Thu Feb 23 2012 Paulo Andrade <pcpa@mandriva.com.br> 20120220-1
++ Revision: 779665
+- Update to latest release.
+
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20070115-2
++ Revision: 756364
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20070115-1
++ Revision: 719622
+- texlive-swimgraf
+- texlive-swimgraf
+- texlive-swimgraf
+- texlive-swimgraf
+
