@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-swimgraf
 Version:	20120220
-Release:	5
+Release:	6
 Summary:	Graphical/textual representations of swimming performances
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/swimgraf
