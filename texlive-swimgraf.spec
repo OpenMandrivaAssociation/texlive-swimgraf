@@ -1,5 +1,5 @@
 Name:		texlive-swimgraf
-Version:	20170414
+Version:	20180303
 Release:	1
 Summary:	Graphical/textual representations of swimming performances
 Group:		Publishing
