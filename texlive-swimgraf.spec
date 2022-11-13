@@ -1,12 +1,12 @@
 Name:		texlive-swimgraf
-Version:	20190228
+Version:	25446
 Release:	1
 Summary:	Graphical/textual representations of swimming performances
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/swimgraf
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -28,12 +28,12 @@ keyval packages. For attractive output it also requires a
 colour output device.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -42,7 +42,7 @@ colour output device.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
