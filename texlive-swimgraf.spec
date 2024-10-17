@@ -3,7 +3,7 @@ Version:	25446
 Release:	2
 Summary:	Graphical/textual representations of swimming performances
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/swimgraf
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/swimgraf
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/swimgraf.doc.r%{version}.tar.xz
